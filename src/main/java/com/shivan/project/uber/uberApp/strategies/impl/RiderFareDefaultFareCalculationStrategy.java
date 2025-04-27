@@ -4,7 +4,9 @@ import com.shivan.project.uber.uberApp.entities.RideRequest;
 import com.shivan.project.uber.uberApp.services.DistanceService;
 import com.shivan.project.uber.uberApp.strategies.RideFareCalculationStrategy;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
+@Service
 @RequiredArgsConstructor
 public class RiderFareDefaultFareCalculationStrategy implements RideFareCalculationStrategy {
 

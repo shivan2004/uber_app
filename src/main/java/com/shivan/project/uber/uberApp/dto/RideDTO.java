@@ -18,9 +18,9 @@ import java.time.LocalDateTime;
 public class RideDTO {
 
 
-    private Point pickupLocation;
+    private PointDTO pickupLocation;
 
-    private Point dropOffLocation;
+    private PointDTO dropOffLocation;
 
     private LocalDateTime createdTime;
 
@@ -30,9 +30,9 @@ public class RideDTO {
 
     private PaymentMethod paymentMethod;
 
-    private RideStatus rideRequestStatus;
+    private RideStatus rideStatus;
 
-    private Double fair;
+    private Double fare;
 
     private LocalDateTime startedAt;
 
