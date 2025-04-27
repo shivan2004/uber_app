@@ -42,10 +42,11 @@ public class Ride {
     @Enumerated(EnumType.STRING)
     private RideStatus rideRequestStatus;
 
-    private Double fair;
+    private Double fare;
 
     private LocalDateTime startedAt;
 
     private LocalDateTime endedAt;
 
+    private String otp;
 }

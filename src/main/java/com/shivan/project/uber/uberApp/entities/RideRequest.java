@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.locationtech.jts.geom.Point;
 
@@ -22,7 +23,7 @@ public class RideRequest {
     private Long id;
 
     @Column(columnDefinition = "Geometry(Point, 4326)")
-    private Point pickupLocation;
+    private Point pickUpLocation;
 
     @Column(columnDefinition = "Geometry(Point, 4326)")
     private Point dropOffLocation;
@@ -30,6 +31,7 @@ public class RideRequest {
     @CreationTimestamp
     private LocalDateTime requestedTime;
 
+    private Double fare;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Rider rider;
