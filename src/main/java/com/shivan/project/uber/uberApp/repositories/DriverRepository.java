@@ -29,4 +29,6 @@ public interface DriverRepository extends JpaRepository<Driver, Long> {
                     "LIMIT 10", nativeQuery = true
     )
     List<Driver> findTenNearbyTopRatedDrivers(Point pickUpLocation);
+
+    Long id(Long id);
 }

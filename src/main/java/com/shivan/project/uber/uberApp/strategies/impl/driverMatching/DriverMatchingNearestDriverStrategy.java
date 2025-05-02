@@ -1,4 +1,4 @@
-package com.shivan.project.uber.uberApp.strategies.impl;
+package com.shivan.project.uber.uberApp.strategies.impl.driverMatching;
 
 import com.shivan.project.uber.uberApp.entities.Driver;
 import com.shivan.project.uber.uberApp.entities.RideRequest;

@@ -4,6 +4,7 @@ import com.shivan.project.uber.uberApp.entities.enums.PaymentMethod;
 import com.shivan.project.uber.uberApp.entities.enums.PaymentStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
 @Data
 @RequiredArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Payment {
 
     @Id

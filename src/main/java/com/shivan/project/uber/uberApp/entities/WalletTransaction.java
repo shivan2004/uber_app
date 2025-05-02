@@ -3,18 +3,18 @@ package com.shivan.project.uber.uberApp.entities;
 import com.shivan.project.uber.uberApp.entities.enums.TransactionMethod;
 import com.shivan.project.uber.uberApp.entities.enums.TransactionType;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.CreatedBy;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Data
+@Getter
+@Setter
 @RequiredArgsConstructor
 @AllArgsConstructor
+@Builder
 public class WalletTransaction {
 
     @Id
@@ -27,7 +27,7 @@ public class WalletTransaction {
 
     private TransactionMethod transactionMethod;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Ride ride;
 
     private String transactionId;

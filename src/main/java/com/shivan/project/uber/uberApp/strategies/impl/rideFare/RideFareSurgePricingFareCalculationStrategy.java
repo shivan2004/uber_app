@@ -1,4 +1,4 @@
-package com.shivan.project.uber.uberApp.strategies.impl;
+package com.shivan.project.uber.uberApp.strategies.impl.rideFare;
 
 import com.shivan.project.uber.uberApp.entities.RideRequest;
 import com.shivan.project.uber.uberApp.services.DistanceService;

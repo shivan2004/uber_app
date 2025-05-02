@@ -10,6 +10,7 @@ import com.shivan.project.uber.uberApp.exceptions.RuntimeConflictException;
 import com.shivan.project.uber.uberApp.repositories.UserRepository;
 import com.shivan.project.uber.uberApp.services.AuthService;
 import com.shivan.project.uber.uberApp.services.RiderService;
+import com.shivan.project.uber.uberApp.services.WalletService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -24,6 +25,7 @@ public class AuthServiceImpl implements AuthService {
     private final ModelMapper modelMapper;
     private final UserRepository userRepository;
     private final RiderService riderService;
+    private final WalletService walletService;
 
     @Override
     public String login(String email, String password) {
@@ -38,15 +40,14 @@ public class AuthServiceImpl implements AuthService {
             throw new RuntimeConflictException("Cannot signup, User already exists with email : " + signUpDTO.getEmail());
         }
 //        userRepository.findByEmail(signUpDTO.getEmail())
-//                .orElseThrow(() -> new RuntimeConflictException("Cannot signUp, User already exists with email : " + signUpDTO.getEmail()));
+//                .orElseThrow(() -> new RuntimeConflictException("Cannot sign Up, User already exists with email : " + signUpDTO.getEmail()));
 
         User mappedUser = modelMapper.map(signUpDTO, User.class);
         mappedUser.setRoles(Set.of(Role.RIDER));
         User savedUser = userRepository.save(mappedUser);
 
-        Rider savedRider = riderService.createNewRider(savedUser);
-
-        //todo: add walled related service here
+        riderService.createNewRider(savedUser);
+        walletService.createNewWallet(savedUser);
 
         return modelMapper.map(savedUser, UserDTO.class);
     }

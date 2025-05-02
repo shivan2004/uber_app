@@ -21,9 +21,13 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
                                   MediaType selectedContentType, Class<? extends HttpMessageConverter<?>> selectedConverterType,
                                   ServerHttpRequest request, ServerHttpResponse response) {
 
-        if (body instanceof ApiResponse<?>) {
-            return body; // Already wrapped
+        if(request.getURI().getPath().contains("/v3/api-docs")) {
+            return body;
         }
-        return new ApiResponse<>(body); // Wrap in ApiResponse
+
+        if (body instanceof ApiResponse<?>) {
+            return body;
+        }
+        return new ApiResponse<>(body);
     }
 }

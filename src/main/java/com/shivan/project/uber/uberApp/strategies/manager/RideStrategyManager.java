@@ -1,9 +1,11 @@
-package com.shivan.project.uber.uberApp.strategies;
+package com.shivan.project.uber.uberApp.strategies.manager;
 
-import com.shivan.project.uber.uberApp.strategies.impl.DriverMatchingHighestRatedDriverStrategy;
-import com.shivan.project.uber.uberApp.strategies.impl.DriverMatchingNearestDriverStrategy;
-import com.shivan.project.uber.uberApp.strategies.impl.RideFareSurgePricingFareCalculationStrategy;
-import com.shivan.project.uber.uberApp.strategies.impl.RiderFareDefaultFareCalculationStrategy;
+import com.shivan.project.uber.uberApp.strategies.DriverMatchingStrategy;
+import com.shivan.project.uber.uberApp.strategies.RideFareCalculationStrategy;
+import com.shivan.project.uber.uberApp.strategies.impl.driverMatching.DriverMatchingHighestRatedDriverStrategy;
+import com.shivan.project.uber.uberApp.strategies.impl.driverMatching.DriverMatchingNearestDriverStrategy;
+import com.shivan.project.uber.uberApp.strategies.impl.rideFare.RideFareSurgePricingFareCalculationStrategy;
+import com.shivan.project.uber.uberApp.strategies.impl.rideFare.RiderFareDefaultFareCalculationStrategy;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
