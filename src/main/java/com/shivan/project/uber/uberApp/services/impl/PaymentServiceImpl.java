@@ -24,11 +24,7 @@ public class PaymentServiceImpl implements PaymentService {
         paymentStrategyManager.paymentStrategy(payment.getPaymentMethod()).processPayment(payment);
     }
 
-    @Override
-    public void updatePaymentStatus(Payment payment, PaymentStatus paymentStatus) {
-        payment.setPaymentStatus(paymentStatus);
-        paymentRepository.save(payment);
-    }
+
 
     @Override
     public Payment createNewPayment(Ride ride) {
