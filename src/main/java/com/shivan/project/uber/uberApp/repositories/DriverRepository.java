@@ -1,15 +1,19 @@
 package com.shivan.project.uber.uberApp.repositories;
 
 import com.shivan.project.uber.uberApp.entities.Driver;
+import com.shivan.project.uber.uberApp.entities.User;
 import org.locationtech.jts.geom.Point;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface DriverRepository extends JpaRepository<Driver, Long> {
+
+    Optional<Driver> findByUser(User user);
 
     @Query(
             value = "SELECT d.*, ST_Distance(d.current_location, :pickUpLocation) AS distance " +
